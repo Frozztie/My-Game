@@ -1,3 +1,9 @@
 res://Scenes/player.tscn
 res://Scenes/player.gd
 res://Scenes/world.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/World/world.tscn
+res://Script/Destructables/Barrel_a.gd
+res://Scenes/Destructables/barrel_a.tscn
+res://Script/Player/player.gd
+res://Scenes/Destructables/barrel_b.tscn
