@@ -1,20 +1,33 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706695227
+::res://::1706711781
 icon.svg::CompressedTexture2D::5542100200727956499::1705917941::1705917946::1::::<><>::
-::res://Scenes/::1706695045
-dead_fx.tscn::PackedScene::-1::1706374209::0::1::::<><>::
-dead_spitter.tscn::PackedScene::1164722507227835118::1706457602::0::1::::<><>::
+::res://Scenes/::1706711737
+::res://Scenes/Destructables/::1706711553
+barrel_a.tscn::PackedScene::1032779756748596807::1706711553::0::1::::<><>::res://Script/Destructables/Barrel_a.gd<>uid://bxilegr3qful4::::res://Sprites/Destructive objects/Barrel A/barrel-A-main-static-00.png<>uid://dvq1wpprmnyop::::res://Sprites/Destructive objects/Barrel A/barrel-A-hit-00.png<>uid://0el66r6i54sv::::res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-01.png<>uid://b2fv6kfe102yg::::res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-02.png<>uid://26y22i45jnse::::res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-03.png<>uid://dukytunfb7o8k::::res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-04.png<>uid://dfsh3ajp6hra3::::res://Sprites/Destructive objects/Barrel A/barrel-A-static-destroyed-00.png
+::res://Scenes/Effects/::1706711637
+dead_fx.tscn::PackedScene::6854713416086670767::1706374209::0::1::::<><>::uid://5ch00fehkjxq::::res://Sprites/Player/Player-rpg.png
+::res://Scenes/Enemy/::1706711588
+::res://Scenes/GUI/::1706711646
 Follow Cam.gd::GDScript::-1::1706691797::0::1::::<>Camera2D<>::
-player.gd::GDScript::-1::1706695045::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::7905134209926393369::1706695045::0::1::::<><>::res://Scenes/player.gd<>uid://cma815qlkgwvf::::res://Sprites/Player/Warrior_spritesheet_allanim.png<>uid://4dhg5acrqyl4::::res://Sprites/Player/Player-rpg.png
+::res://Scenes/Pickups/::1706711737
+::res://Scenes/Player/::1706711680
+dead_spitter.tscn::PackedScene::1164722507227835118::1706457602::0::1::::<><>::
+player.tscn::PackedScene::7905134209926393369::1706711680::0::1::::<><>::res://Script/Player/player.gd<>uid://cma815qlkgwvf::::res://Sprites/Player/Warrior_spritesheet_allanim.png<>uid://4dhg5acrqyl4::::res://Sprites/Player/Player-rpg.png
+::res://Scenes/World/::1706711672
 tile_map_1.tscn::PackedScene::8583452573910559454::1706685554::0::1::::<><>::uid://dcc5xsfup316t::::res://Sprites/TileMaps/MainLev2.0.png<>uid://l32fjsx4oyhd::::res://Sprites/TileMaps/MainLev.png<>uid://ly5g2fmuik2b::::res://Sprites/TileMaps/water-1.png
 tile_map_2.tscn::PackedScene::2470197204980651007::1706685554::0::1::::<><>::uid://e6vghekxjvcf::::res://Sprites/TileMaps/auto_tile_ground.png<>uid://b3w35vlcaepw0::::res://Sprites/TileMaps/water-2.png
-world.tscn::PackedScene::9212311497969153802::1706694845::0::1::::<><>::uid://bbgt1033h6xjj::::res://Scenes/tile_map_2.tscn<>res://Scenes/Follow Cam.gd<>uid://dkvkn10dovypt::::res://Scenes/player.tscn
-::res://Script/::1706683652
+world.tscn::PackedScene::9212311497969153802::1706711792::0::1::::<><>::uid://bbgt1033h6xjj::::res://Scenes/World/tile_map_2.tscn<>res://Scenes/GUI/Follow Cam.gd<>uid://dkvkn10dovypt::::res://Scenes/Player/player.tscn
+::res://Script/::1706711743
+::res://Script/Destructables/::1706711292
+Barrel_a.gd::GDScript::-1::1706711292::0::1::::<>StaticBody2D<>::
+::res://Script/Effects/::1706711707
 ::res://Script/Enemy/::1706683650
-::res://Script/GUI/::1706683655
+::res://Script/GUI/::1706711781
 Camera_Panning.gd::GDScript::-1::1706380782::0::1::::<>Camera2D<>::
-::res://Script/Player/::1706683635
+::res://Script/Pickups/::1706711743
+::res://Script/Player/::1706711680
+player.gd::GDScript::-1::1706710377::0::1::::<>CharacterBody2D<>::
+::res://Script/World/::1706711693
 ::res://Sprites/::1706650600
 ::res://Sprites/Destructive objects/::1706650601
 ::res://Sprites/Destructive objects/Barrel A/::1706685557
@@ -493,9 +506,9 @@ walk-04.png::CompressedTexture2D::108220440527043191::1706456638::1706685557::1:
 walk-05.png::CompressedTexture2D::1088658105432864058::1706456638::1706685557::1::::<><>::
 walk-06.png::CompressedTexture2D::5554702733790855233::1706456638::1706685557::1::::<><>::
 _enemy3_spritesheet.png::CompressedTexture2D::3423010181912755664::1706456638::1706685557::1::::<><>::
-::res://Sprites/Items/::1706685557
-chest_keys_treasure.png::CompressedTexture2D::8550864192521788438::1573326961::1706685557::1::::<><>::
-decorative.png::CompressedTexture2D::6549230028506015272::1573326976::1706685557::1::::<><>::
+::res://Sprites/Items/::1706711781
+chest_keys_treasure.png::CompressedTexture2D::8550864192521788438::1573326961::1706711782::1::::<><>::
+decorative.png::CompressedTexture2D::6549230028506015272::1573326976::1706711782::1::::<><>::
 ::res://Sprites/Player/::1706686712
 Player-rpg.png::CompressedTexture2D::2042106908292662979::1706083270::1706686712::1::::<><>::
 Warrior_spritesheet_allanim.png::CompressedTexture2D::5617159183376201303::1706456900::1706685557::1::::<><>::

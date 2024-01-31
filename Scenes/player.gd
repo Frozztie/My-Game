@@ -12,7 +12,10 @@ var input_movement = Vector2.ZERO
 var speed = 150
 
 func _ready():
-	$HitBox/CollisionShape2D.disabled = true
+	$HitBox/Sword.disabled = true
+	$HitBox/Dagger.disabled = true
+	$HitBox/Whirl.disabled = true
+	$HitBox/AOE.disabled = true
 	anim.play("RESET")
 
 func _physics_process(_delta):
