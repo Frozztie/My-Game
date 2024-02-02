@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drh6q84lq2xks"]
+
+[ext_resource type="Script" path="res://Script/Pickups/Coins.gd" id="1_wwu5g"]
+[ext_resource type="Texture2D" uid="uid://dt3dqpplcqhyk" path="res://Sprites/Items/chest_keys_treasure.png" id="2_mmdql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyrls"]
+radius = 5.0
+
+[node name="Coins" type="Area2D"]
+collision_layer = 8
+collision_mask = 32
+script = ExtResource("1_wwu5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+texture = ExtResource("2_mmdql")
+hframes = 16
+vframes = 10
+frame = 97
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pyrls")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

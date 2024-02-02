@@ -1,3 +1,9 @@
+res://Scenes/GUI
+res://Sprites/Player
+res://Script/Player
+res://Scenes/Interactable
+res://Scenes/Pickups
+res://Script/Pickups
 res://Scenes/Destructables
 res://Sprites/Destructive objects/Barrel A
 res://Scenes

@@ -1,15 +1,17 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var anim_tree = $Anim_Tree
 @onready var anim_state = anim_tree.get("parameters/playback")
 @onready var anim = $Anim
 
 
-enum player_states {MOVE, RUN, ATTACK1, ATTACK2, ATTACK3}
+enum player_states {MOVE, RUN, ATTACK1, ATTACK2, ATTACK3, DEAD}
 var current_states = player_states.MOVE
 
 var input_movement = Vector2.ZERO
 var speed = 150
+var health = player_data.health
 
 func _ready():
 	$HurtBox/Sword.disabled = true
@@ -30,6 +32,8 @@ func _physics_process(_delta):
 			attack2()
 		player_states.ATTACK3:
 			attack3()
+		player_states.DEAD:
+			dead()
 
 func move():
 	input_movement = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
@@ -50,13 +54,17 @@ func move():
 
 	if Input.is_action_just_pressed("attack"):
 		current_states = player_states.ATTACK1
-		
 
 	if Input.is_action_just_pressed("run"):
 		current_states = player_states.RUN
+	
+	if player_data.health <= 0:
+		current_states = player_states.DEAD
 
 func run():
 	anim_state.travel("Run")
+	if Input.is_action_just_released("run"):
+		current_states = player_states.MOVE
 
 func attack1():
 	anim_state.travel("Sword_1")
@@ -64,15 +72,26 @@ func attack1():
 	await anim.animation_finished
 	
 func attack2():
-	anim_state.travel("Sword_2")
-	current_states = player_states.ATTACK2
-	await anim.animation_finished
+	if Input.is_action_just_pressed("attack"):
+		anim_state.travel("Sword_2")
+		current_states = player_states.ATTACK2
+		await anim.animation_finished
+	else:
+		current_states = player_states.MOVE
 	
 func attack3():
-	anim.play("sword3Whirl")
-	current_states = player_states.MOVE
-	await anim.animation_finished
-	
+	if Input.is_action_just_pressed("attack"):
+		anim.play("sword3Whirl")
+		current_states = player_states.MOVE
+		await anim.animation_finished
+	else:
+		current_states = player_states.MOVE
+
+func dead():
+	anim_state.travel("Dead")
+	await get_tree().create_timer(1).timeout
+	player_data.health = 4
+	get_tree().reload_current_scene()
 
 func _process(_delta):
 	velocity = input_movement * speed
