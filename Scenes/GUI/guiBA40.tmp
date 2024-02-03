@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c32k277l7yp03"]
+[gd_scene load_steps=15 format=3 uid="uid://c32k277l7yp03"]
 
 [ext_resource type="Script" path="res://Script/GUI/gui.gd" id="1_6njdj"]
 [ext_resource type="Texture2D" uid="uid://qq6abqwg57kw" path="res://Sprites/GUI/Heart.png" id="1_q0kkk"]
 [ext_resource type="Texture2D" uid="uid://cma815qlkgwvf" path="res://Sprites/Player/Warrior_spritesheet_allanim.png" id="2_iwosq"]
-[ext_resource type="Texture2D" uid="uid://dcp4en47nbj1" path="res://Sprites/Items/keys_treasure.png" id="4_mvili"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb164"]
 atlas = ExtResource("2_iwosq")
@@ -97,19 +96,4 @@ position = Vector2(50, 80)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_a8fpn")
 autoplay = "default"
-frame_progress = 0.311499
-
-[node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(120, 81)
-scale = Vector2(2, 2)
-texture = ExtResource("4_mvili")
-hframes = 11
-vframes = 14
-frame = 1
-
-[node name="Coin_Number" type="Label" parent="."]
-offset_left = 143.0
-offset_top = 59.0
-offset_right = 259.0
-offset_bottom = 104.0
-theme_override_font_sizes/font_size = 28
+frame_progress = 0.906812

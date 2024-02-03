@@ -51,7 +51,7 @@ func move():
 	if input_movement == Vector2.ZERO:
 		anim_state.travel("Idle")
 		velocity = Vector2.ZERO
-
+#
 	if Input.is_action_just_pressed("attack"):
 		current_states = player_states.ATTACK1
 

@@ -10,5 +10,5 @@ func _on_area_entered(area):
 		queue_free()
 
 
-		#player_data.health -= 1
-		#print(player_data.health)
+		player_data.health -= 1
+		print(player_data.health)

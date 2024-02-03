@@ -43,7 +43,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -103,7 +103,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -115,7 +115,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -127,7 +127,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2074,17 +2074,14 @@ shape = SubResource("CircleShape2D_vyapv")
 debug_color = Color(0.47451, 0.588235, 0, 0.419608)
 
 [node name="HitBox2" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2"]
-visible = false
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_cstyt")
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 36
 
@@ -2092,15 +2089,19 @@ collision_mask = 36
 position = Vector2(-19, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uwynt")
+disabled = true
 debug_color = Color(0.843137, 0.184314, 0.811765, 0.419608)
 
 [node name="Dagger" type="CollisionShape2D" parent="HurtBox" groups=["HurtBox"]]
 position = Vector2(-15, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6vfh2")
+disabled = true
 
 [node name="Whirl" type="CollisionShape2D" parent="HurtBox" groups=["HurtBox"]]
 shape = SubResource("CircleShape2D_dxs4t")
+disabled = true
 
 [node name="AOE" type="CollisionShape2D" parent="HurtBox" groups=["HurtBox"]]
 shape = SubResource("CircleShape2D_dxs4t")
+disabled = true
