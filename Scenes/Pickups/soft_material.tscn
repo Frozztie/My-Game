@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0bc55i81xmcj"]
+
+[ext_resource type="Script" path="res://Soft_Material.gd" id="1_svnpb"]
+[ext_resource type="Texture2D" uid="uid://djygil0jylyru" path="res://Sprites/Items/Stuff.png" id="2_0nigg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rt1e7"]
+radius = 3.0
+height = 10.0
+
+[node name="Soft_Material" type="Area2D"]
+collision_layer = 8
+collision_mask = 32
+script = ExtResource("1_svnpb")
+
+[node name="Soft" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_0nigg")
+hframes = 6
+vframes = 7
+frame = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rt1e7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

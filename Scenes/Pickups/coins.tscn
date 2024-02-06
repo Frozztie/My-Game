@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://drh6q84lq2xks"]
+
+[ext_resource type="Script" path="res://Script/Pickups/Souls.gd" id="1_5pn1j"]
+[ext_resource type="Texture2D" uid="uid://djygil0jylyru" path="res://Sprites/Items/Stuff.png" id="2_ji3yf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rt1e7"]
+radius = 3.0
+height = 10.0
+
+[node name="Souls" type="Area2D"]
+collision_layer = 8
+collision_mask = 32
+script = ExtResource("1_5pn1j")
+
+[node name="Souls" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_ji3yf")
+hframes = 6
+vframes = 7
+frame = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rt1e7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

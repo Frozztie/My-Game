@@ -1,0 +1,138 @@
+[gd_scene load_steps=22 format=3 uid="uid://d4iroowbdrt8e"]
+
+[ext_resource type="PackedScene" uid="uid://dkvkn10dovypt" path="res://Scenes/Player/player.tscn" id="2_u8xq4"]
+[ext_resource type="PackedScene" uid="uid://oyjy433tvgvn" path="res://Scenes/Destructables/barrel_a.tscn" id="4_15nln"]
+[ext_resource type="PackedScene" uid="uid://cbyn2gmgrao4n" path="res://Scenes/Destructables/barrel_b.tscn" id="5_bixo6"]
+[ext_resource type="PackedScene" uid="uid://drh6q84lq2xks" path="res://Scenes/Pickups/coins.tscn" id="6_to7dp"]
+[ext_resource type="PackedScene" uid="uid://c32k277l7yp03" path="res://Scenes/GUI/gui.tscn" id="7_7hvlc"]
+[ext_resource type="PackedScene" uid="uid://6s56wyp2k8pe" path="res://Scenes/Pickups/hard_material.tscn" id="7_kska4"]
+[ext_resource type="PackedScene" uid="uid://qc7gjb1aq2nv" path="res://Scenes/Enemy/enemy_6.tscn" id="8_xby0k"]
+[ext_resource type="PackedScene" uid="uid://b0bc55i81xmcj" path="res://Scenes/Pickups/soft_material.tscn" id="8_ypywu"]
+[ext_resource type="PackedScene" uid="uid://cso5ooysfqm0q" path="res://Scenes/Enemy/enemy_9.tscn" id="9_p035v"]
+[ext_resource type="PackedScene" uid="uid://bbgt1033h6xjj" path="res://Scenes/World/tile_map_2.tscn" id="10_yjas1"]
+[ext_resource type="PackedScene" uid="uid://dy0npahra3rnt" path="res://Scenes/Interactable/rock_black.tscn" id="11_0e1mj"]
+[ext_resource type="PackedScene" uid="uid://bpqevq28rmrfj" path="res://Scenes/Interactable/rock_blue.tscn" id="12_dfx7w"]
+[ext_resource type="PackedScene" uid="uid://eidtj8wxq0wl" path="res://Scenes/Interactable/rock_gold.tscn" id="13_clkip"]
+[ext_resource type="PackedScene" uid="uid://dg772mxct5jqv" path="res://Scenes/Interactable/rock_green.tscn" id="14_6yya5"]
+[ext_resource type="PackedScene" uid="uid://0qypdqvj73bm" path="res://Scenes/Interactable/rock_greener.tscn" id="15_ko15r"]
+[ext_resource type="PackedScene" uid="uid://cxp44oa8a07xd" path="res://Scenes/Interactable/rock_orange.tscn" id="16_0obuk"]
+[ext_resource type="PackedScene" uid="uid://b2ec7a3noqc4c" path="res://Scenes/Interactable/rock_pink.tscn" id="17_2xec0"]
+[ext_resource type="PackedScene" uid="uid://bwvet4m0jhioq" path="res://Scenes/Interactable/rock_purple.tscn" id="18_s0jy7"]
+[ext_resource type="PackedScene" uid="uid://b40aed4rkwo3b" path="res://Scenes/Interactable/rock_red.tscn" id="19_yvsb5"]
+[ext_resource type="PackedScene" uid="uid://bdiavy51gjqvb" path="res://Scenes/Interactable/rock_silver.tscn" id="20_yrucs"]
+[ext_resource type="PackedScene" uid="uid://dhsrbk56r6ay0" path="res://Scenes/Interactable/rock_teal.tscn" id="21_kynr7"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TileMap2" parent="." instance=ExtResource("10_yjas1")]
+
+[node name="GUI" parent="." instance=ExtResource("7_7hvlc")]
+
+[node name="Player" parent="." instance=ExtResource("2_u8xq4")]
+y_sort_enabled = true
+position = Vector2(305, 178)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(305, 178)
+zoom = Vector2(2, 2)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Destroyables" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Barrel_a" parent="Destroyables" instance=ExtResource("4_15nln")]
+position = Vector2(390, 176)
+
+[node name="Barrel_b" parent="Destroyables" instance=ExtResource("5_bixo6")]
+position = Vector2(337, 226)
+
+[node name="Pickups" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Coins" parent="Pickups" instance=ExtResource("6_to7dp")]
+position = Vector2(446, 218)
+
+[node name="Coins2" parent="Pickups" instance=ExtResource("6_to7dp")]
+position = Vector2(416, 239)
+
+[node name="Coins3" parent="Pickups" instance=ExtResource("6_to7dp")]
+position = Vector2(465, 252)
+
+[node name="Coins4" parent="Pickups" instance=ExtResource("6_to7dp")]
+position = Vector2(482, 202)
+
+[node name="Coins5" parent="Pickups" instance=ExtResource("6_to7dp")]
+position = Vector2(446, 173)
+
+[node name="Hard_Material" parent="Pickups" instance=ExtResource("7_kska4")]
+position = Vector2(520, 89)
+
+[node name="Hard_Material2" parent="Pickups" instance=ExtResource("7_kska4")]
+position = Vector2(300, 42)
+
+[node name="Hard_Material3" parent="Pickups" instance=ExtResource("7_kska4")]
+position = Vector2(164, 313)
+
+[node name="Hard_Material4" parent="Pickups" instance=ExtResource("7_kska4")]
+position = Vector2(142, 53)
+
+[node name="Soft_Material" parent="Pickups" instance=ExtResource("8_ypywu")]
+position = Vector2(93, 165)
+
+[node name="Soft_Material2" parent="Pickups" instance=ExtResource("8_ypywu")]
+position = Vector2(459, 42)
+
+[node name="Soft_Material3" parent="Pickups" instance=ExtResource("8_ypywu")]
+position = Vector2(552, 313)
+
+[node name="Soft_Material4" parent="Pickups" instance=ExtResource("8_ypywu")]
+position = Vector2(42, 301)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Enemy_6" parent="Enemies" instance=ExtResource("8_xby0k")]
+position = Vector2(500, 134)
+
+[node name="Enemy_9" parent="Enemies" instance=ExtResource("9_p035v")]
+position = Vector2(239, 263)
+
+[node name="Harvestables" type="Node2D" parent="."]
+
+[node name="Rock_Black" parent="." instance=ExtResource("11_0e1mj")]
+position = Vector2(-106, 493)
+
+[node name="Rock_Blue" parent="." instance=ExtResource("12_dfx7w")]
+position = Vector2(-290, 83)
+
+[node name="Rock_Gold" parent="." instance=ExtResource("13_clkip")]
+position = Vector2(384, 570)
+
+[node name="Rock_Green" parent="." instance=ExtResource("14_6yya5")]
+position = Vector2(-146, 231)
+
+[node name="Rock_Greener" parent="." instance=ExtResource("15_ko15r")]
+position = Vector2(534, -164)
+
+[node name="Rock_Orange" parent="." instance=ExtResource("16_0obuk")]
+position = Vector2(-330, 382)
+
+[node name="Rock_Pink" parent="." instance=ExtResource("17_2xec0")]
+position = Vector2(202, 501)
+
+[node name="Rock_Purple" parent="." instance=ExtResource("18_s0jy7")]
+position = Vector2(174, -62)
+
+[node name="Rock_Red" parent="." instance=ExtResource("19_yvsb5")]
+position = Vector2(142, 228)
+
+[node name="Rock_Silver" parent="." instance=ExtResource("20_yrucs")]
+position = Vector2(-73, 79)
+
+[node name="Rock_Teal" parent="." instance=ExtResource("21_kynr7")]
+position = Vector2(504, 230)

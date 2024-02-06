@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwvet4m0jhioq"]
+
+[ext_resource type="Texture2D" uid="uid://ccw8d8gotpwkj" path="res://Sprites/Ore.png" id="1_6ph0m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crfrk"]
+radius = 3.0
+height = 14.0
+
+[node name="Rock_Purple" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6ph0m")
+hframes = 4
+vframes = 6
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_crfrk")
