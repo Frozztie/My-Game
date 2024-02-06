@@ -1,7 +1,0 @@
-res://Scenes/GUI/gui.tscn
-res://Script/GUI/gui.gd
-res://Scenes/World/world.tscn
-res://Scenes/Player/player.tscn
-res://Scenes/World/tile_map_2.tscn
-res://Scenes/Pickups/coins.tscn
-res://Script/Pickups/Coins.gd
