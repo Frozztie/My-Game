@@ -65,18 +65,19 @@ height = 36.0
 script = ExtResource("1_clqkt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 4.76837e-07)
+position = Vector2(0.5, -18)
 scale = Vector2(0.890625, 0.8125)
 sprite_frames = SubResource("SpriteFrames_fpreu")
-animation = &"Static_D"
+animation = &"Static_B"
 autoplay = "Static_B"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 18)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_xdl2x")
 
 [node name="HitBox" type="Area2D" parent="." groups=["HitBox"]]
-collision_layer = 4
+position = Vector2(0.5, -18)
+collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwvet4m0jhioq"]
+
+[ext_resource type="Texture2D" uid="uid://ccw8d8gotpwkj" path="res://Sprites/Ore.png" id="1_6ph0m"]
+[ext_resource type="Script" path="res://Script/Pickups/Harvestable.gd" id="1_w1051"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yob0"]
+radius = 1.0
+
+[node name="Rock_Purple" type="StaticBody2D"]
+script = ExtResource("1_w1051")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6ph0m")
+hframes = 4
+vframes = 6
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_0yob0")

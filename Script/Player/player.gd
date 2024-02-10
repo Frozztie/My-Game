@@ -1,15 +1,17 @@
-extends CharacterBody2D
+extends CharacterBody2D 
+class_name Player
 
 @onready var anim_tree = $Anim_Tree
 @onready var anim_state = anim_tree.get("parameters/playback")
 @onready var anim = $Anim
 
 
-enum player_states {MOVE, RUN, ATTACK1, ATTACK2, ATTACK3}
+enum player_states {MOVE, RUN, ATTACK1, ATTACK2, ATTACK3, DEAD, HARVEST}
 var current_states = player_states.MOVE
 
 var input_movement = Vector2.ZERO
 var speed = 150
+var health = player_data.health
 
 func _ready():
 	$HurtBox/Sword.disabled = true
@@ -30,6 +32,10 @@ func _physics_process(_delta):
 			attack2()
 		player_states.ATTACK3:
 			attack3()
+		player_states.DEAD:
+			dead()
+		player_states.HARVEST:
+			harvest()
 
 func move():
 	input_movement = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
@@ -41,22 +47,31 @@ func move():
 		anim_tree.set("parameters/Sword_1/blend_position", input_movement)
 		anim_tree.set("parameters/Sword_2/blend_position", input_movement)
 		anim_tree.set("parameters/Dagger/blend_position", input_movement)
+		anim_tree.set("parameters/Harvest/blend_position", input_movement)
 		#anim_tree.set("parameters/Jump/blend_position", input_movement)
+		
 		anim_state.travel("Walk")
 
 	if input_movement == Vector2.ZERO:
 		anim_state.travel("Idle")
 		velocity = Vector2.ZERO
-
+#
 	if Input.is_action_just_pressed("attack"):
 		current_states = player_states.ATTACK1
-		
 
 	if Input.is_action_just_pressed("run"):
 		current_states = player_states.RUN
+	
+	if(Input.is_action_just_pressed("Harvest")):
+		current_states = player_states.HARVEST
+	
+	if player_data.health <= 0:
+		current_states = player_states.DEAD
 
 func run():
 	anim_state.travel("Run")
+	if Input.is_action_just_released("run"):
+		current_states = player_states.MOVE
 
 func attack1():
 	anim_state.travel("Sword_1")
@@ -64,15 +79,31 @@ func attack1():
 	await anim.animation_finished
 	
 func attack2():
-	anim_state.travel("Sword_2")
-	current_states = player_states.ATTACK2
-	await anim.animation_finished
+	if Input.is_action_just_pressed("attack"):
+		anim_state.travel("Sword_2")
+		current_states = player_states.ATTACK2
+		await anim.animation_finished
+	else:
+		current_states = player_states.MOVE
 	
 func attack3():
-	anim.play("sword3Whirl")
-	current_states = player_states.MOVE
+	if Input.is_action_just_pressed("attack"):
+		anim.play("sword3Whirl")
+		current_states = player_states.MOVE
+		await anim.animation_finished
+	else:
+		current_states = player_states.MOVE
+
+func dead():
+	anim_state.travel("Dead")
+	await get_tree().create_timer(1).timeout
+	player_data.health = 4
+	get_tree().reload_current_scene()
+
+func harvest():
+	anim_state.travel("Harvest")
+	current_states = player_states.HARVEST
 	await anim.animation_finished
-	
 
 func _process(_delta):
 	velocity = input_movement * speed
@@ -80,9 +111,5 @@ func _process(_delta):
 
 func on_states_reset():
 	current_states = player_states.MOVE
-
-func on_attack_next1():
 	current_states = player_states.ATTACK2
-
-func on_attack_next2():
 	current_states = player_states.ATTACK3
