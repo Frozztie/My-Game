@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Equippable_Item" load_steps=2 format=3 uid="uid://c45iyrb5jjwnd"]
-
-[ext_resource type="Script" path="res://Script/Pickups/Equip/Equippable_Item.gd" id="1_aw6ed"]
-
-[resource]
-script = ExtResource("1_aw6ed")
-display_name = "Test Item"
