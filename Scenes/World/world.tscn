@@ -1,5 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://d4iroowbdrt8e"]
 
+[ext_resource type="PackedScene" uid="uid://bbgt1033h6xjj" path="res://Scenes/World/tile_map_2.tscn" id="1_hafpi"]
 [ext_resource type="PackedScene" uid="uid://dkvkn10dovypt" path="res://Scenes/Player/player.tscn" id="2_u8xq4"]
 [ext_resource type="PackedScene" uid="uid://oyjy433tvgvn" path="res://Scenes/Destructables/barrel_a.tscn" id="4_15nln"]
 [ext_resource type="PackedScene" uid="uid://cbyn2gmgrao4n" path="res://Scenes/Destructables/barrel_b.tscn" id="5_bixo6"]
@@ -9,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://qc7gjb1aq2nv" path="res://Scenes/Enemy/enemy_6.tscn" id="8_xby0k"]
 [ext_resource type="PackedScene" uid="uid://b0bc55i81xmcj" path="res://Scenes/Pickups/soft_material.tscn" id="8_ypywu"]
 [ext_resource type="PackedScene" uid="uid://cso5ooysfqm0q" path="res://Scenes/Enemy/enemy_9.tscn" id="9_p035v"]
-[ext_resource type="PackedScene" uid="uid://bbgt1033h6xjj" path="res://Scenes/tile_map_2.tscn" id="11_t08cp"]
 [ext_resource type="PackedScene" uid="uid://bwvet4m0jhioq" path="res://Scenes/Interactable/Harvest/rock_purple.tscn" id="18_s0jy7"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+
+[node name="TileMap2" parent="." instance=ExtResource("1_hafpi")]
 
 [node name="GUI" parent="." instance=ExtResource("7_7hvlc")]
 
@@ -94,5 +96,3 @@ position = Vector2(239, 263)
 
 [node name="Rock_Purple" parent="." instance=ExtResource("18_s0jy7")]
 position = Vector2(129, 132)
-
-[node name="TileMap2" parent="." instance=ExtResource("11_t08cp")]
