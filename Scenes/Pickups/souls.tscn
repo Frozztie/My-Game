@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://drh6q84lq2xks"]
+
+[ext_resource type="Script" path="res://Script/Pickups/Souls.gd" id="1_fg46p"]
+[ext_resource type="Texture2D" uid="uid://djygil0jylyru" path="res://Sprites/Items/Stuff.png" id="2_78ssr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46rf4"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vc46x"]
+radius = 1.0
+
+[node name="Souls" type="RigidBody2D" groups=["Collectable"]]
+collision_layer = 32
+collision_mask = 32
+can_sleep = false
+lock_rotation = true
+linear_damp = 5.0
+script = ExtResource("1_fg46p")
+
+[node name="Souls" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_78ssr")
+hframes = 6
+vframes = 7
+frame = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_46rf4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vc46x")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

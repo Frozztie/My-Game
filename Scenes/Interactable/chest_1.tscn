@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://crb8xujs8i880"]
+
+[ext_resource type="Texture2D" uid="uid://dt3dqpplcqhyk" path="res://Sprites/Items/chest_keys_treasure.png" id="1_gywvs"]
+
+[node name="Chest_1" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gywvs")
+hframes = 8
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

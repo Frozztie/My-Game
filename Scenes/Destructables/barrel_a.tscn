@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://oyjy433tvgvn"]
+
+[ext_resource type="Script" path="res://Script/Destructables/Barrel_a.gd" id="1_clqkt"]
+[ext_resource type="Texture2D" uid="uid://bxilegr3qful4" path="res://Sprites/Destructive objects/Barrel A/barrel-A-main-static-00.png" id="2_0ov50"]
+[ext_resource type="Texture2D" uid="uid://dvq1wpprmnyop" path="res://Sprites/Destructive objects/Barrel A/barrel-A-hit-00.png" id="3_o8v5x"]
+[ext_resource type="Texture2D" uid="uid://0el66r6i54sv" path="res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-01.png" id="4_aa5xy"]
+[ext_resource type="Texture2D" uid="uid://b2fv6kfe102yg" path="res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-02.png" id="5_nlv35"]
+[ext_resource type="Texture2D" uid="uid://26y22i45jnse" path="res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-03.png" id="6_4fbqm"]
+[ext_resource type="Texture2D" uid="uid://dukytunfb7o8k" path="res://Sprites/Destructive objects/Barrel A/barrel-A-destr-anim-04.png" id="7_dvhqf"]
+[ext_resource type="Texture2D" uid="uid://dfsh3ajp6hra3" path="res://Sprites/Destructive objects/Barrel A/barrel-A-static-destroyed-00.png" id="8_djjjs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpreu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ov50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o8v5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aa5xy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nlv35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4fbqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dvhqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_djjjs")
+}],
+"loop": false,
+"name": &"Destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ov50")
+}],
+"loop": false,
+"name": &"Static_B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_djjjs")
+}],
+"loop": false,
+"name": &"Static_D",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdl2x"]
+size = Vector2(29, 15)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idrn2"]
+radius = 13.0
+height = 36.0
+
+[node name="Barrel_a" type="StaticBody2D"]
+script = ExtResource("1_clqkt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -18)
+scale = Vector2(0.890625, 0.8125)
+sprite_frames = SubResource("SpriteFrames_fpreu")
+animation = &"Static_B"
+autoplay = "Static_B"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_xdl2x")
+
+[node name="HitBox" type="Area2D" parent="." groups=["HitBox"]]
+position = Vector2(0.5, -18)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_idrn2")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

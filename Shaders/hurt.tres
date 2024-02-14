@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dktwj72cvxlku"]
+
+[ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="1_tu2x4"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_tu2x4")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0

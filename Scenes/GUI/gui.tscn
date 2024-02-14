@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://c32k277l7yp03"]
+
+[ext_resource type="Script" path="res://Script/GUI/gui.gd" id="1_6njdj"]
+[ext_resource type="Texture2D" uid="uid://qq6abqwg57kw" path="res://Sprites/GUI/Heart.png" id="1_q0kkk"]
+[ext_resource type="Texture2D" uid="uid://cma815qlkgwvf" path="res://Sprites/Player/Warrior_spritesheet_allanim.png" id="2_iwosq"]
+[ext_resource type="Texture2D" uid="uid://djygil0jylyru" path="res://Sprites/Items/Stuff.png" id="4_qvcyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb164"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(640, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw2cu"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(720, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x58s8"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(800, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ry6n"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(880, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuua4"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11oew"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xrwp"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od41r"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erujq"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(320, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erymd"]
+atlas = ExtResource("2_iwosq")
+region = Rect2(400, 160, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8fpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb164")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw2cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x58s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ry6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuua4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11oew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xrwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od41r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erujq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erymd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_6njdj")
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(119, 23)
+scale = Vector2(2, 2)
+texture = ExtResource("1_q0kkk")
+hframes = 5
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 80)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_a8fpn")
+autoplay = "default"
+frame_progress = 0.311499
+
+[node name="Souls" type="Sprite2D" parent="."]
+position = Vector2(730, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("4_qvcyq")
+hframes = 6
+vframes = 7
+frame = 30
+
+[node name="Souls_Number" type="Label" parent="."]
+offset_left = 744.0
+offset_top = 2.0
+offset_right = 860.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 25
+
+[node name="Hard_Material" type="Sprite2D" parent="."]
+position = Vector2(875, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("4_qvcyq")
+hframes = 6
+vframes = 7
+frame = 36
+
+[node name="Hard_Number" type="Label" parent="."]
+offset_left = 889.0
+offset_top = 2.0
+offset_right = 1005.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 25
+
+[node name="Soft_Material" type="Sprite2D" parent="."]
+position = Vector2(1020, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("4_qvcyq")
+hframes = 6
+vframes = 7
+frame = 40
+
+[node name="Soft_Number" type="Label" parent="."]
+offset_left = 1034.0
+offset_top = 2.0
+offset_right = 1150.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 25
